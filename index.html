@@ -11,7 +11,7 @@
 
 <!-- ══ HERO ══ -->
 <div id="hero" class="page active" onclick="showPanoramic()" style="cursor:pointer">
-  <img src="assets/images/hero.jpg" alt="MOTİF ATLASI">
+  <img src="varliklar/resimler/hero.jpg" alt="MOTİF ATLASI">
   <div id="hero-hint"></div>
 </div>
 
@@ -26,40 +26,19 @@
   <div id="panoScroller">
     <div id="panoScene">
 
-      <!-- Katman 1: Arka Plan (en yavaş, 0.25x) -->
-      <img id="layer-bg" class="layer"
-           src="assets/images/arkaplan.png" draggable="false" alt="">
+      <img id="layer-bg"   class="layer" src="varliklar/resimler/arkaplan.png" draggable="false" alt="">
+      <img id="layer-kuzu" class="layer" src="varliklar/resimler/kuzu.png"      draggable="false" alt="">
+      <img id="layer-koc"  class="layer" src="varliklar/resimler/koc.png"       draggable="false" alt="">
+      <img id="layer-ns"   class="layer" src="varliklar/resimler/obje.png"      draggable="false" alt="">
 
-      <img id="layer-kuzu" class="layer"
-           src="assets/images/kuzu.png"
-           draggable="false" alt="">
-      <img id="layer-koc" class="layer"
-           src="assets/images/koc.png"
-           draggable="false" alt="">
+      <!-- Kadınlar — pointer-events:none, tıklama hotspot divlerden -->
+      <img id="layer-k1" class="layer woman" src="varliklar/resimler/kadin1.png" draggable="false" alt="">
+      <img id="layer-k2" class="layer woman" src="varliklar/resimler/kadin2.png" draggable="false" alt="">
+      <img id="layer-k3" class="layer woman" src="varliklar/resimler/kadin3.png" draggable="false" alt="">
+      <img id="layer-k4" class="layer woman" src="varliklar/resimler/kadin4.png" draggable="false" alt="">
+      <img id="layer-k5" class="layer woman" src="varliklar/resimler/kadin5.png" draggable="false" alt="">
 
-      <!-- Katman 2: Nesneler (orta hız, 0.6x) -->
-      <img id="layer-ns" class="layer"
-           src="assets/images/obje.png" draggable="false" alt="">
-
-      <!-- Kadınlar (tam hız, 1.0x) -->
-      <img id="layer-k1" class="layer woman clickable" onclick="showOverlay('yasam')"
-           src="assets/images/kadin1.png" draggable="false" alt="">
-
-      <img id="layer-k2" class="layer clickable"
-           src="assets/images/kadin2.png" draggable="false" alt="Bereket"
-           onclick="showOverlay('bereket')">
-
-      <img id="layer-k3" class="layer woman clickable" onclick="showOverlay('akis')"
-           src="assets/images/kadin3.png" draggable="false" alt="">
-
-      <img id="layer-k4" class="layer woman clickable" onclick="showOverlay('guc')"
-           src="assets/images/kadin4.png" draggable="false" alt="">
-
-      <img id="layer-k5" class="layer clickable"
-           src="assets/images/kadin5.png" draggable="false" alt="Nazar"
-           onclick="showOverlay('nazar')">
-
-      <!-- ══ Kadın hotspot tıklama alanları ══ -->
+      <!-- k1→yasam · k2→bereket · k3→akis · k4→guc · k5→nazar -->
       <div class="woman-hotspot" style="left:21%;width:13%;"
            onmouseenter="womanHover(0,true)" onmouseleave="womanHover(0,false)"
            onclick="womanClick(event,0,'yasam')"></div>
@@ -78,66 +57,16 @@
 
     </div>
   </div>
-
-  <!-- Uçan kuş -->
   <div id="bird"></div>
-
-  <div id="scrollIndicator">
-    <span>KAYDİR</span><span class="arr">→</span>
-  </div>
+  <div id="scrollIndicator"><span>KAYDİR</span><span class="arr">→</span></div>
 </div>
 
-<!-- ══ BEREKET ══ -->
-<div id="bereket" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('bereket')">✕</button>
-  <div class="overlay-content">
-    <img src="assets/images/overlay-yasam.jpg" alt="BEREKET">
-  </div>
-</div>
-
-<!-- ══ NAZAR ══ -->
-<div id="nazar" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('nazar')">✕</button>
-  <div class="overlay-content">
-    <img src="assets/images/overlay-bereket.jpg" alt="NAZAR">
-  </div>
-</div>
-
-<!-- ══ DOKUMA ══ -->
-<div id="motif" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('motif')">✕</button>
-  <div style="position:fixed;inset:0;background:#87CEEB;">
-    <img src="assets/images/dokuma-gorsel.png" alt="DOKUMA"
-         style="width:100%;height:100%;object-fit:contain;display:block;">
-  </div>
-</div>
-
-<script src="js/script.js"></script>
-
-<div id="yasam" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('yasam')">✕</button>
-  <div class="overlay-content">
-    <img src="assets/images/overlay-guc.jpg" alt="YAŞAM" style="width:100%;display:block;">
-  </div>
-</div>
-<div id="akis" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('akis')">✕</button>
-  <div class="overlay-content">
-    <img src="assets/images/overlay-nazar.jpg" alt="AKIŞ" style="width:100%;display:block;">
-  </div>
-</div>
-<div id="guc" class="overlay" style="display:none">
-  <button class="close-btn" onclick="closeOverlay('guc')">✕</button>
-  <div class="overlay-content">
-    <img src="assets/images/overlay-akis.jpg" alt="GÜÇ" style="width:100%;display:block;">
-  </div>
-</div>
+<!-- ══ KADINLAR ══ -->
 <div id="kadin" class="overlay" style="display:none">
   <button class="close-btn" onclick="closeOverlay('kadin')">✕</button>
   <div class="overlay-content" style="background:#00155c;align-items:center;justify-content:center;padding:0;">
-    <video id="kadinVideo" autoplay muted loop playsinline
-           style="width:100%;max-height:100vh;object-fit:contain;display:block;">
-      <source src="assets/videos/video-kadin.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline style="width:100%;max-height:100vh;object-fit:contain;display:block;">
+      <source src="varliklar/videolar/video-kadin.mp4" type="video/mp4">
     </video>
   </div>
 </div>
@@ -146,11 +75,61 @@
 <div id="anadolu" class="overlay" style="display:none">
   <button class="close-btn" onclick="closeOverlay('anadolu')">✕</button>
   <div class="overlay-content" style="background:#00155c;align-items:center;justify-content:center;padding:0;">
-    <video autoplay muted loop playsinline
-           style="width:100%;max-height:100vh;object-fit:contain;display:block;">
-      <source src="assets/videos/video-anadolu.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline style="width:100%;max-height:100vh;object-fit:contain;display:block;">
+      <source src="varliklar/videolar/video-anadolu.mp4" type="video/mp4">
     </video>
   </div>
 </div>
+
+<!-- ══ DOKUMA ══ -->
+<div id="motif" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('motif')">✕</button>
+  <div style="position:fixed;inset:0;background:#87CEEB;">
+    <img src="varliklar/resimler/dokuma-gorsel.png" alt="DOKUMA"
+         style="width:100%;height:100%;object-fit:contain;display:block;">
+  </div>
+</div>
+
+<!-- ══ YAŞAM — kadin1 ══ -->
+<div id="yasam" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('yasam')">✕</button>
+  <div class="overlay-content" style="background:#00155c;">
+    <img src="varliklar/resimler/overlay-yasam.jpg" alt="YASAM" style="width:100%;display:block;">
+  </div>
+</div>
+
+<!-- ══ BEREKET — kadin2 ══ -->
+<div id="bereket" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('bereket')">✕</button>
+  <div class="overlay-content" style="background:#00155c;">
+    <img src="varliklar/resimler/overlay-bereket.jpg" alt="BEREKET" style="width:100%;display:block;">
+  </div>
+</div>
+
+<!-- ══ AKIŞ — kadin3 ══ -->
+<div id="akis" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('akis')">✕</button>
+  <div class="overlay-content" style="background:#00155c;">
+    <img src="varliklar/resimler/overlay-akis.jpg" alt="AKIS" style="width:100%;display:block;">
+  </div>
+</div>
+
+<!-- ══ GÜÇ — kadin4 ══ -->
+<div id="guc" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('guc')">✕</button>
+  <div class="overlay-content" style="background:#00155c;">
+    <img src="varliklar/resimler/overlay-guc.jpg" alt="GUC" style="width:100%;display:block;">
+  </div>
+</div>
+
+<!-- ══ NAZAR — kadin5 ══ -->
+<div id="nazar" class="overlay" style="display:none">
+  <button class="close-btn" onclick="closeOverlay('nazar')">✕</button>
+  <div class="overlay-content" style="background:#00155c;">
+    <img src="varliklar/resimler/overlay-nazar.jpg" alt="NAZAR" style="width:100%;display:block;">
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
